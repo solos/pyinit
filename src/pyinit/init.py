@@ -34,7 +34,7 @@ if __name__ == '__main__':
         if not os.path.isdir('src/%s' % project):
             os.mkdir('src/%s' % project)
         open('src/%s/__init__.py' % project, 'w').write('')
-        open('src/%s/sutff' % project, 'w').write('')
+        open('src/%s/stuff' % project, 'w').write('')
     else:
         print '''Project name must be letters '''\
               '''or numbers and could not start with numbers'''
