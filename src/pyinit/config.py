@@ -1,19 +1,19 @@
 
 
-PROJECT = raw_input('project')  # 'pyempty'
-DESCRIPTION = 'A python empty project'
+PROJECT = raw_input('Please enter the name of project: ') or 'pyinit'
+DESCRIPTION = raw_input('Please enter the description of the project: ') \
+    or "A python empty project"
 AUTHOR = 'solos'
 EMAIL = 'solos@solos.so'
-LICENSES = 'BSD'
+LICENSES = 'MIT'
 LICENSES_DETAIL = ''
 URL = 'https://github.com/%s/%s' % (AUTHOR, PROJECT)
 PLATFORMS = ['any']
-MANIFEST = '''
-include ChangeLog.txt LICENES.txt README.md requirements.txt
+MANIFEST = '''include ChangeLog.txt LICENES.txt README.md requirements.txt
 recursive-include test *.py *.sh
 recursive-include docs *.md
 '''
-REQUIREMENTS = '\n'.join(['bottle'])
+REQUIREMENTS = '\n'.join([])
 README = '''
 # %s
 
@@ -24,9 +24,13 @@ README = '''
 SETUP = '''
 #!/usr/bin/python
 #coding=utf-8
+
+import sys
 sys.path.append('./src')
+
 from distutils.core import setup
 from %s import __version__
+
 setup(name='%s',
       version=__version__,
       description='%s',
@@ -70,7 +74,7 @@ class DefaultTestCase(unittest.TestCase):
         pass
 
     def test_version(self):
-        self.assertIsNotNone(%s.__version__, '0.1')
+        self.assertIsNotNone(%s.__version__, '0.0.1')
 
 
 def suite():
